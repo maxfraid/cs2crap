@@ -142,9 +142,7 @@ ip:port
 
 После успешного создания бота получаем его [**токен**](https://botcreators.ru/blog/kak-sozdat-svoego-bota-v-botfather/#:~:text=%D0%B4%D0%BB%D1%8F%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B8%20%D0%B1%D0%BE%D1%82%D0%B0.-,/token,-%E2%80%94%20%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D0%B3%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8) и [**id вашего с ботом чата**](https://cms3.ru/kak-poluchit-chat-id-telegram/), в папке _cs2crap/telegram_bot_ создаём файл _"config.json"_ и закидываем в него полученные данные:
 
-```js
-// cs2crap/telegram_bot/config.json
-
+```json
 {
     "BOT_TOKEN": "your_bot_token",
     "CHAT_ID": "your_chat_id"
@@ -153,10 +151,10 @@ ip:port
 
 ### **Команды и первый запуск**
 
-Для начала работы с cs2crap с помощью бота запустите bot.py, находящийся в пакете telegram_bot из корневой папки. Это можно сделать c помощью вашей IDE либо выполнить следующую команду в терминале:
+Для начала работы с cs2crap с помощью бота запустите main.py, находящийся в пакете telegram_bot из корневой папки. Это можно сделать c помощью вашей IDE либо выполнить следующую команду в терминале:
 
 ```shell
-python cs2crap/telegram_bot/bot.py
+python cs2crap/telegram_bot/main.py
 ```
 
 После старта бот отправляет сообщение об успешном запуске.
@@ -173,7 +171,7 @@ python cs2crap/telegram_bot/bot.py
 
 #### **Запуск /update и /cscrap**
 
-Перед запуском главных функций измените название .csv файла, находящегося в /data, с **"items_database_backup (???).csv"** на **"items_database.csv"** или выполните команду /update для создания нового **"items_database.csv"** (имейте в виду, что этот процесс может занять довольно много времени).
+Перед запуском главных функций измените название .csv файла, находящегося в /data, с **"items_database_backup (???).csv"** на **"items_database.csv"** (*или копируйте его для сохранения backup файла*) или выполните команду /update для создания нового **"items_database.csv"** (имейте в виду, что этот процесс может занять много времени, так как для корректной работы необходимо получить все предметы Counter Strike 2 с торговой площадки Steam).
 
 После того как у вас есть готовая база данных предметов **items_database.csv** в корне проекта вы можете запускать главные функции: /update для обновления **items_database.csv** и /cscrap для поиска выгодных предметов.
 
@@ -201,8 +199,8 @@ python cs2crap/telegram_bot/bot.py
 update_database(
     start_from = 0,
     items_count = 21100,
-    sort_column = "popular",    // "popular" or "price"
-    sort_dir = "desc",          // "asc" or "desc"
+    sort_column = "popular",    # "popular" or "price"
+    sort_dir = "desc",          # "asc" or "desc"
 ) -> None:
 ```
 
